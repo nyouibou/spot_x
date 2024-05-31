@@ -96,6 +96,8 @@
 //                   ),
 //                 ),
 
+// ignore_for_file: prefer_const_constructors
+
 //                 SizedBox(
 //                   height: 20,
 //                 ),
@@ -256,14 +258,14 @@ class _SongPageScreenState extends State<SongPageScreen>
                 Obx(
                   () => Text(
                     songPlayerController.songTitle.value,
-                    style: MytextStyle.customWhiteHeadings,
+                    style: MytextStyle.MusicName,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
                 Obx(
                   () => Text(
                     songPlayerController.songArtist.value,
-                    style: MytextStyle.customWhiteHeadings1,
+                    style: MytextStyle.ArtistName,
                   ),
                 ),
                 SizedBox(

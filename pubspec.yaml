@@ -37,12 +37,10 @@ dependencies:
   cupertino_icons: ^1.0.6
   google_fonts: ^6.2.1
   audioplayers: ^6.0.0
-  circular_bottom_navigation: ^2.4.0
   on_audio_query: ^2.9.0
   permission_handler: ^11.3.1
   get: ^4.6.6
   just_audio: ^0.9.38
-  cached_network_image: ^3.3.1
   lottie: ^3.1.2
 
 dev_dependencies:
@@ -85,7 +83,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: ndot
+      fonts:
+        - asset: font/ndot47.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

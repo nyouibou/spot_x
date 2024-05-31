@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:spot_x/core/constants/texts.dart';
 import 'package:spot_x/presentation/home_page/view/home_page.dart';
 
@@ -29,20 +30,26 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [
-        Container(
-          height: MediaQuery.sizeOf(context).height,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(
-                      "https://images.pexels.com/photos/3574678/pexels-photo-3574678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"),
-                  fit: BoxFit.cover)),
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 220,
+              height: 220,
+              child: Lottie.asset(
+                "assets/images/Animation - 1716911199498.json",
+                fit: BoxFit.fill,
+              ),
+            ),
+            SizedBox(
+                height:
+                    20), // Add some spacing between Lottie animation and text
+            Text("Spot-X", style: MytextStyle.AppName),
+          ],
         ),
-        Text(
-          "data",
-          style: MytextStyle.customWhiteHeadings,
-        )
-      ]),
+      ),
       // body: Image.network(
       //   "https://images.pexels.com/photos/3574678/pexels-photo-3574678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       //   fit: BoxFit.cover,

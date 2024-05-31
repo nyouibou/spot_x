@@ -5,6 +5,50 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:spot_x/core/constants/color.dart';
 
 class MytextStyle {
+  static TextStyle ArtistName = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 14.0,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
+
+  static TextStyle AppName = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 30.0,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
+  static TextStyle Artistplay = TextStyle(
+    fontFamily: 'ndot',
+    fontSize: 20.0,
+    fontWeight: FontWeight.w500,
+    color: Colors.red,
+  );
+  static TextStyle TitleName = TextStyle(
+    fontFamily: 'ndot',
+    fontSize: 24.0,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
+
+  static TextStyle MusicName = TextStyle(
+    fontFamily: 'ndot',
+    fontSize: 28.0,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
+  static TextStyle AlbumName = TextStyle(
+    fontFamily: 'ndot',
+    fontSize: 22.0,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
+  static TextStyle Title1 = TextStyle(
+    fontFamily: 'ndot',
+    fontSize: 26.0,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+  );
   static TextStyle customWhiteHeadings = GoogleFonts.patuaOne(
       textStyle: TextStyle(
           fontSize: 28,
