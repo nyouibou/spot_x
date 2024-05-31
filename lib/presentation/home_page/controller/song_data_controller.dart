@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_print, invalid_use_of_protected_member
 
 import 'package:get/get.dart';
-import 'package:get/state_manager.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:spot_x/presentation/home_page/controller/song_player_controller.dart';
