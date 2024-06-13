@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +9,7 @@ import 'package:spot_x/presentation/home_page/view/song_page.dart';
 import 'package:spot_x/presentation/home_page/view/widgets/custom_listed_page.dart';
 
 class HomePageScreen extends StatefulWidget {
-  const HomePageScreen({Key? key}) : super(key: key);
+  const HomePageScreen({super.key});
 
   @override
   State<HomePageScreen> createState() => _HomePageScreenState();
@@ -54,7 +54,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 child: Column(
                   children: [
                     TabBar(
-                      indicatorColor: Colors.transparent,
+                      dividerColor: Colors.transparent,
                       unselectedLabelColor: Colors.grey,
                       tabs: [
                         Tab(
@@ -136,40 +136,6 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     ),
                   ],
                 ),
-              ),
-            ),
-            // Mini player
-            Container(
-              color: Colors.grey[900],
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          songPlayerController.songTitle.value,
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        Text(
-                          songPlayerController.songArtist.value,
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      // Add onPressed function for mini player button
-                    },
-                    icon: Icon(
-                      Icons.play_circle_filled,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
               ),
             ),
           ],
