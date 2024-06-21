@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -37,184 +39,186 @@ class _SongPageScreenState extends State<SongPageScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: SingleChildScrollView(
-        child: Stack(children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  height: MediaQuery.sizeOf(context).height / 1.8,
-                  width: MediaQuery.sizeOf(context).width,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Lottie.asset(
-                    'assets/images/Animation - 1716911199498.json',
-                    controller: aniController,
-                    onLoaded: (composition) {
-                      aniController.duration = composition.duration;
-                      aniController.repeat();
-                    },
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Obx(
-                  () => Text(
-                    songPlayerController.songTitle.value,
-                    style: MytextStyle.MusicName,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                Obx(
-                  () => Text(
-                    songPlayerController.songArtist.value,
-                    style: MytextStyle.ArtistName,
-                  ),
-                ),
-                SizedBox(
-                  height: 25,
-                ),
-                Obx(
-                  () => Slider(
-                    inactiveColor: ColorConstants.customWhite,
-                    activeColor: ColorConstants.customBlack1,
-                    value: songPlayerController.sliderValue.value,
-                    onChanged: (value) {
-                      songPlayerController
-                          .seekToPosition(Duration(seconds: value.toInt()));
-                    },
-                    min: 0,
-                    max: songPlayerController.songDuration.value.inSeconds
-                        .toDouble(),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Obx(
-                      () => Text(
-                        songPlayerController.formatDuration(
-                            songPlayerController.currentPosition.value),
-                        style: MytextStyle.customWhiteHeadings1,
-                      ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.black,
+        body: SingleChildScrollView(
+          child: Stack(children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: MediaQuery.sizeOf(context).height / 1.8,
+                    width: MediaQuery.sizeOf(context).width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    Obx(
-                      () => Text(
-                        songPlayerController.formatDuration(
-                            songPlayerController.songDuration.value),
-                        style: MytextStyle.customWhiteHeadings1,
-                      ),
+                    child: Lottie.asset(
+                      'assets/images/Animation - 1716911199498.json',
+                      controller: aniController,
+                      onLoaded: (composition) {
+                        aniController.duration = composition.duration;
+                        aniController.repeat();
+                      },
+                      fit: BoxFit.fill,
                     ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  child: Row(
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Obx(
+                    () => Text(
+                      songPlayerController.songTitle.value,
+                      style: MytextStyle.MusicName,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Obx(
+                    () => Text(
+                      songPlayerController.songArtist.value,
+                      style: MytextStyle.ArtistName,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Obx(
+                    () => Slider(
+                      inactiveColor: ColorConstants.customWhite,
+                      activeColor: ColorConstants.customBlack1,
+                      value: songPlayerController.sliderValue.value,
+                      onChanged: (value) {
+                        songPlayerController
+                            .seekToPosition(Duration(seconds: value.toInt()));
+                      },
+                      min: 0,
+                      max: songPlayerController.songDuration.value.inSeconds
+                          .toDouble(),
+                    ),
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.shuffle,
-                          size: 40,
-                          color: Colors.white,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          songDataController.previousSongPlay();
-                        },
-                        icon: Icon(
-                          Icons.arrow_back_ios_rounded,
-                          size: 40,
-                          color: Colors.white,
+                      Obx(
+                        () => Text(
+                          songPlayerController.formatDuration(
+                              songPlayerController.currentPosition.value),
+                          style: MytextStyle.customWhiteHeadings1,
                         ),
                       ),
                       Obx(
-                        () => songPlayerController.isPlaying.value
-                            ? InkWell(
-                                onTap: () {
-                                  songPlayerController.pausePlaying();
-                                  aniController.stop();
-                                },
-                                child: CircleAvatar(
-                                  radius: 30,
-                                  backgroundColor: Colors.white,
-                                  child: Icon(
-                                    Icons.pause,
-                                    color: Colors.black,
-                                    size: 40,
-                                  ),
-                                ),
-                              )
-                            : InkWell(
-                                onTap: () {
-                                  songPlayerController.resumePlaying();
-                                  aniController.repeat();
-                                },
-                                child: CircleAvatar(
-                                  radius: 30,
-                                  backgroundColor: Colors.white,
-                                  child: Icon(
-                                    Icons.play_arrow,
-                                    color: Colors.black,
-                                    size: 40,
-                                  ),
-                                ),
-                              ),
-                      ),
-                      IconButton(
-                        onPressed: () {
-                          songDataController.nextSongPlay();
-                        },
-                        icon: Icon(
-                          Icons.arrow_forward_ios_rounded,
-                          size: 40,
-                          color: Colors.white,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.favorite_outline,
-                          size: 40,
-                          color: Colors.white,
+                        () => Text(
+                          songPlayerController.formatDuration(
+                              songPlayerController.songDuration.value),
+                          style: MytextStyle.customWhiteHeadings1,
                         ),
                       ),
                     ],
                   ),
-                ),
-              ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.shuffle,
+                            size: 40,
+                            color: Colors.white,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            songDataController.previousSongPlay();
+                          },
+                          icon: Icon(
+                            Icons.arrow_back_ios_rounded,
+                            size: 40,
+                            color: Colors.white,
+                          ),
+                        ),
+                        Obx(
+                          () => songPlayerController.isPlaying.value
+                              ? InkWell(
+                                  onTap: () {
+                                    songPlayerController.pausePlaying();
+                                    aniController.stop();
+                                  },
+                                  child: CircleAvatar(
+                                    radius: 30,
+                                    backgroundColor: Colors.white,
+                                    child: Icon(
+                                      Icons.pause,
+                                      color: Colors.black,
+                                      size: 40,
+                                    ),
+                                  ),
+                                )
+                              : InkWell(
+                                  onTap: () {
+                                    songPlayerController.resumePlaying();
+                                    aniController.repeat();
+                                  },
+                                  child: CircleAvatar(
+                                    radius: 30,
+                                    backgroundColor: Colors.white,
+                                    child: Icon(
+                                      Icons.play_arrow,
+                                      color: Colors.black,
+                                      size: 40,
+                                    ),
+                                  ),
+                                ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            songDataController.nextSongPlay();
+                          },
+                          icon: Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            size: 40,
+                            color: Colors.white,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.favorite_outline,
+                            size: 40,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Positioned(
-            top: 6,
-            child: CircleAvatar(
-              radius: 25,
-              backgroundColor: Colors.transparent,
-              child: IconButton(
-                color: ColorConstants.customWhite,
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(
-                  Icons.arrow_back,
-                  size: 30,
+            Positioned(
+              top: 6,
+              child: CircleAvatar(
+                radius: 25,
+                backgroundColor: Colors.transparent,
+                child: IconButton(
+                  color: ColorConstants.customWhite,
+                  onPressed: () {
+                    Get.back();
+                  },
+                  icon: Icon(
+                    Icons.arrow_back,
+                    size: 30,
+                  ),
                 ),
               ),
             ),
-          ),
-        ]),
+          ]),
+        ),
       ),
     );
   }

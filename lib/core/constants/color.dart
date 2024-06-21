@@ -13,6 +13,10 @@ class ColorConstants {
   static Color customBlue = Colors.blue;
   static Color customRed = Colors.red;
   static Color customPink = Colors.pink;
+  static Color mainblack = Colors.black;
+  static Color containergrey = Color.fromARGB(255, 58, 58, 58);
+  static Color mainwhite = Colors.white;
+  static Color nothingred = Color(0xffD71921);
 
   static Color gradientColor1 = Color.fromARGB(255, 36, 33, 33);
   static Color gradientColor2 = const Color.fromARGB(255, 159, 157, 157);

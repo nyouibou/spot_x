@@ -19,32 +19,32 @@ class MytextStyle {
     color: Colors.white,
   );
   static TextStyle Artistplay = TextStyle(
-    fontFamily: 'ndot',
+    fontFamily: 'Poppins',
     fontSize: 20.0,
     fontWeight: FontWeight.w500,
     color: Colors.red,
   );
   static TextStyle TitleName = TextStyle(
-    fontFamily: 'ndot',
+    fontFamily: 'Poppins',
     fontSize: 24.0,
     fontWeight: FontWeight.w500,
     color: Colors.white,
   );
 
   static TextStyle MusicName = TextStyle(
-    fontFamily: 'ndot',
+    fontFamily: 'Poppins',
     fontSize: 28.0,
     fontWeight: FontWeight.w500,
     color: Colors.white,
   );
   static TextStyle AlbumName = TextStyle(
-    fontFamily: 'ndot',
+    fontFamily: 'Poppins',
     fontSize: 22.0,
     fontWeight: FontWeight.w500,
     color: Colors.white,
   );
   static TextStyle Title1 = TextStyle(
-    fontFamily: 'ndot',
+    fontFamily: 'Poppins',
     fontSize: 26.0,
     fontWeight: FontWeight.w500,
     color: Colors.white,

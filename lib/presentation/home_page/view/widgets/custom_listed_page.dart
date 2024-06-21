@@ -1,11 +1,8 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:spot_x/core/constants/color.dart';
 import 'package:spot_x/presentation/home_page/controller/song_data_controller.dart';
 
 class CustomListedPage extends StatefulWidget {
@@ -39,9 +36,7 @@ class _CustomListedPageState extends State<CustomListedPage> {
               onTap: widget.onPressed,
               child: Container(
                 height: MediaQuery.of(context).size.height / 12,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(30),
-                    color: Colors.black),
+                decoration: BoxDecoration(color: ColorConstants.customBlack2),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
@@ -94,7 +89,7 @@ class _CustomListedPageState extends State<CustomListedPage> {
                       IconButton(
                           onPressed: () {},
                           icon: Icon(
-                            Icons.more_vert,
+                            Icons.play_arrow_rounded,
                             color: Colors.white,
                           )),
                     ],
